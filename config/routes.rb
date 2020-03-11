@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :songs, only: [:index, :create]
+  scope '/api/v1' do
+  resources :songs
+  end
 end
