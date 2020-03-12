@@ -1,12 +1,13 @@
 class Seed
 
     def self.begin
+      Song.destroy_all
       seed = Seed.new
       seed.generate_songs
     end
   
     def generate_songs
-      10.times do |i|
+      5.times do |i|
         song = Song.create!(
           name: Faker::Artist.name,
           lyrics: Faker::TvShows::GameOfThrones.quote,
