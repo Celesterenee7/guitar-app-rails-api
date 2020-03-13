@@ -9,20 +9,19 @@ class SongsController < ApplicationController
       json_response(@song, :created)
     end
 
-    # def update
-    #   song = Song.find(params[:id])
-    #   song.update_attributes(song_param)
-    #   render json: song
-    # end
-  
-    # def destroy
-    #   song = Song.find(params[:id])
-    #   song.destroy
-    #   head :no_content, status: :ok
-    # end
+    def self.search(search)
+      if search
+        song = Song.find_by(name: search)
+        if songself.where(song_id: song)
+        else
+          Song.all
+        end
+      else Song.all
+      end
+    end
 
     private
     def song_params
-      params.require(:song).permit(:name, :lyrics, :chords, :tabs)
+      params.require(:song).permit(:name, :lyrics, :chords, :tabs, :search)
     end
   end
