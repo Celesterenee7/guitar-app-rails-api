@@ -7,7 +7,7 @@ class Seed
     end
   
     def generate_songs
-      3.times do |i|
+      2.times do |i|
         song = Song.create!(
           name: Faker::Artist.name,
           lyrics: Faker::TvShows::GameOfThrones.quote,
