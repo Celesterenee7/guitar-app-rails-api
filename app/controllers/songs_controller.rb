@@ -9,6 +9,11 @@ class SongsController < ApplicationController
       json_response(@song, :created)
     end
 
+    def show 
+      song = Song.find(params[:id])
+      render :show
+    end
+
     def self.search(search)
       if search
         song = Song.find_by(name: search)
